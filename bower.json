@@ -1,0 +1,19 @@
+{
+  "name": "personal_page",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Aaron"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
