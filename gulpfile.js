@@ -16,11 +16,11 @@ gulp.task('sass', function () {
 gulp.task('server', function() {
     gulp.src('app')
         .pipe(server({
-          port: 8085,
-          livereload: true,
-          directoryListing: false,
-          open: true,
-          defaultFile: 'index.html'
+            port: 4000,
+            livereload: true,
+            directoryListing: false,
+            open: true,
+            defaultFile: 'index.html'
         }));
 });
 
