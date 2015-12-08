@@ -4,14 +4,26 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     uglify = require('gulp-uglify'),
     cssmin = require('gulp-cssmin'),
+    compass = require('gulp-compass'),
     del = require('del');
     // rjs = require('gulp-requirejs');
 
-gulp.task('sass', function () {
-    return sass('app/.scss/*.scss')
-        .on('error', sass.logError)
-        .pipe(gulp.dest('app/css'));
+gulp.task('sass', function() {
+    return gulp.src('./app/.scss/*.scss')
+        .pipe(compass({
+            config_file: './config.rb',
+            project: __dirname+'./app/assets',
+            css: './app/css',
+            sass: './app.scss'
+        }))
+        .pipe(gulp.dest('app/disk'));
 });
+
+// gulp.task('sass', function () {
+//     return sass('app/.scss/*.scss')
+//         .on('error', sass.logError)
+//         .pipe(gulp.dest('app/css'));
+// });
 
 gulp.task('server', function() {
     gulp.src('app')
@@ -19,7 +31,7 @@ gulp.task('server', function() {
             port: 4000,
             livereload: true,
             directoryListing: false,
-            open: true,
+            // open: true,
             defaultFile: 'index.html'
         }));
 });
